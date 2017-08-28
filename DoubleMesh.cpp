@@ -76,11 +76,11 @@ MStatus checkDuplicateMesh::doIt(const MArgList& args)
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
-/// This function iterates through the selectionList passed to it.				///
+/// This function iterates through the selectionList passed to it.		///
 /// Compares every dagPath with everyother by feeding them to checkDoubleMesh() ///
 ///////////////////////////////////////////////////////////////////////////////////
 
-void checkDuplicateMesh::iterateFn(MSelectionList selList)
+void checkDuplicateMesh::iterateFn(MSelectionList& selList)
 {
 	int value = 0;
 
@@ -128,11 +128,11 @@ void checkDuplicateMesh::iterateFn(MSelectionList selList)
 }
 
 /////////////////////////////////////////////////////////////////////////////////
-/// This function creates two bounding boxes for the dagPaths passed.		  ///
+/// This function creates two bounding boxes for the dagPaths passed.	      ///
 /// Checks if the bounding boxes are at exact same position with a tolerance  ///
 /////////////////////////////////////////////////////////////////////////////////
 
-int checkDuplicateMesh::checkDoubleMesh(MDagPath dagPath1, MDagPath dagPath2)
+int checkDuplicateMesh::checkDoubleMesh(MDagPath& dagPath1, MDagPath& dagPath2)
 {
 	double tol = 0.01; //tolerance value
 	
@@ -239,7 +239,7 @@ MStatus checkDuplicateFace::doIt(const MArgList& args)
 /// feeds them to checkPolygonPoints()			 ///
 ////////////////////////////////////////////////////
 
-void checkDuplicateFace::iterateFn(MSelectionList selList)
+void checkDuplicateFace::iterateFn(MSelectionList& selList)
 {
 
 	for (unsigned int i = 0; i < selList.length(); i++)
@@ -293,7 +293,7 @@ void checkDuplicateFace::iterateFn(MSelectionList selList)
 
 ////////////////////////////////////////////////////////////////
 /// This function checks the distance between vertex points  ///
-/// checks if points are close beyond a threshold			 ///
+/// checks if points are close beyond a threshold	     ///
 ////////////////////////////////////////////////////////////////
 
 
