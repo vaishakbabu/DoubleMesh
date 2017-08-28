@@ -9,11 +9,11 @@
 #include <maya/MSelectionList.h>
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-/// This plugin creates two new Maya commands - checkDuplicateFace and checkDuplicateMesh.			  ///
-/// checkDuplicateMesh - checks for duplicate meshes inside existing mesh.							  ///
+/// This plugin creates two new Maya commands - checkDuplicateFace and checkDuplicateMesh.            ///
+/// checkDuplicateMesh - checks for duplicate meshes inside existing mesh.			      ///
 /// If found display DagFullPath and select the transform node associated with the duplicate meshes.  ///
-/// checkDuplicateFace - checks for duplicate face under a face on the mesh.						  ///
-/// If found display the DagFullPath of the faces and select the duplicate faces.					  ///
+/// checkDuplicateFace - checks for duplicate face under a face on the mesh.			      ///
+/// If found display the DagFullPath of the faces and select the duplicate faces.		      ///
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class checkDuplicateFace : public MPxCommand
@@ -24,7 +24,7 @@ public:
 
 	virtual MStatus doIt(const MArgList& args);
 	bool checkPolygonPoints(MFnMesh& meshFn, int a_id, int b_id);
-	void iterateFn(MSelectionList selList);
+	void iterateFn(MSelectionList& selList);
 
 	static void* creator();
 
@@ -46,8 +46,8 @@ public:
 	virtual		~checkDuplicateMesh();
 
 	virtual MStatus doIt(const MArgList& args);
-	int checkDoubleMesh(MDagPath dagPath1, MDagPath dagPath2);
-	void iterateFn(MSelectionList selList);
+	int checkDoubleMesh(MDagPath& dagPath1, MDagPath& dagPath2);
+	void iterateFn(MSelectionList& selList);
 
 	static void* creator();
 
